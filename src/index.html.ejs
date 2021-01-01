@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fumble</title>
+        <meta charset="utf-8">
+        <meta name="theme-color" content="#330033">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="manifest" href="webmanifest.json">
+    </head>
+    <body>
+        <nav id="mainnav">
+            <button class="dice"
+                    data-bind="
+                        click: tab_setter('dice'),
+                        css: {active: tab() === 'dice'}">dice</button>
+
+            <button class="throw"
+                    data-bind="
+                        click: tab_setter('throw'),
+                        css: {active: tab() === 'throw'}">throw</button>
+
+            <button class="stats"
+                    data-bind="
+                        click: tab_setter('stats'),
+                        css: {active: tab() === 'stats'}">stats</button>
+        </nav>
+
+        <section id="dice"
+                 data-bind="visible: tab() == 'dice'"
+                 style="display: none">
+            <p>
+                <textarea id="main"
+                          type="text"
+                          placeholder="e.g. 3w6 + 2"
+                          data-bind="value: dicecode"></textarea>
+            </p>
+            <p>
+                <button data-bind="click: dice_adder('w4')"><span class="die d4">+</span></button>
+                <button data-bind="click: dice_adder('w6')"><span class="die d6">+</span></button>
+                <button data-bind="click: dice_adder('w8')"><span class="die d8">+</span></button>
+                <button data-bind="click: dice_adder('w10')"><span class="die d10">+</span></button>
+                <button data-bind="click: dice_adder('w12')"><span class="die d12">+</span></button>
+                <button data-bind="click: dice_adder('w20')"><span class="die d20">+</span></button>
+                <button data-bind="click: dice_adder('w100')"><span class="die d12">+</span></button>
+            </p>
+            <p>
+                <button class="action"
+                        data-bind="click: clear_code">Clear</button>
+
+                <button class="action"
+                        data-bind="click: tab_setter('throw')">Roll</button>
+            </p>
+        </section>
+
+        <section id="throw"
+                 data-bind="visible: tab() == 'throw'"
+                 style="display: none">
+
+            <p class="formula"
+               data-bind="foreach: result">
+
+                <!-- ko if: $data.type === 'die' -->
+                    <span class="die" data-bind="css: {d4: sides === 4, d6: sides === 6, d8: sides === 8, d10: sides === 10, d12: sides === 12, d20: sides === 20}">
+                        <span data-bind="text: value">?</span>
+                    </span>
+                <!-- /ko -->
+
+                <!-- ko if: $data.type === 'operator' -->
+                    <span class="operator" data-bind="text: value">?</span>
+                <!-- /ko -->
+
+                <!-- ko if: $data.type === 'bracket' -->
+                    <span class="bracket" data-bind="text: value">?</span>
+                <!-- /ko -->
+
+                <!-- ko if: $data.type === 'number' -->
+                    <span class="number" data-bind="text: value">?</span>
+                <!-- /ko -->
+            </p>
+            <p>
+                <button data-bind="click: roll">Reroll</button>
+            </p>
+        </section>
+
+        <section id="stats"
+                 data-bind="visible: tab() == 'stats'"
+                 style="display: none">
+
+            <!-- ko if: tab() == 'stats' -->
+                <canvas data-bind="chart: stats"></canvas>
+            <!-- /ko -->
+        </section>
+
+        <div id="reactapplication"></div>
+    </body>
+</html>

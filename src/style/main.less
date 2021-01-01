@@ -1,0 +1,101 @@
+
+@import "reset.less";
+@import "images.less";
+
+@lightblue: #87aade;
+@violet: #330033;
+
+
+#mainnav {
+    background-color: @violet;
+    text-align: center;
+
+    button {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        color: transparent;
+        width: 4em;
+        height: 4em;
+        margin-left: 1em;
+        margin-right: 1em;
+        border-bottom: 0.3em solid transparent;
+
+        &.active {
+            border-bottom-color: white;
+        }
+    }
+}
+
+section {
+    padding: 1em;
+}
+
+#dice {
+    p {
+        margin-bottom: 1em;
+    }
+
+    button {
+        margin-right: 1em;
+
+        &.action {
+            color: white;
+            padding: 1em;
+            background-color: @violet;
+        }
+    }
+
+    textarea {
+        font-size: 2em;
+        width: 100%;
+        height: 5em;
+    }
+}
+
+#throw {
+    p {
+        margin-bottom: 1em;
+    }
+
+    .formula {
+        span {
+            vertical-align: middle;
+        }
+        .number {
+            color: maroon;
+        }
+        .bracket {
+            color: silver;
+        }
+    }
+
+    button {
+        padding: 1em;
+        color: white;
+        background-color: @violet;
+    }
+}
+
+#stats {
+}
+
+.die {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+
+    display: inline-block;
+    width: 3em;
+    height: 2.2em;
+
+    padding-top: 0.8em;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    color: white;
+    text-shadow: -0.04em 0.04em 0.025em #e9c6af,
+                  0.04em -0.04em 0.025em #a05a2c;
+}

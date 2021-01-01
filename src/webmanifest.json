@@ -1,0 +1,22 @@
+{
+    "name": "Fumble",
+    "description": "Alea iacta est",
+    "display": "standalone",
+    "background_color": "#330033",
+    "start_url": "index.html",
+    "icons": [
+        {
+          "src": "logo-100x100.png",
+          "sizes": "100x100",
+          "type": "image/png"
+        }, {
+          "src": "logo-144x144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }, {
+          "src": "logo-200x200.png",
+          "sizes": "200x200",
+          "type": "image/png"
+        }
+    ]
+}

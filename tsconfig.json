@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+      "experimentalDecorators": true,      
+    "target": "es5",
+    "lib": ["dom", "es2017"],
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": false,
+    "jsx": "React"
+  },
+  "include": [
+    "src/script",
+    "spec/**/*.ts"
+  ]
+}

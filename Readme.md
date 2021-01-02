@@ -1,4 +1,3 @@
-
 # Fumble
 
 A dice throwing app, for mobile and other use.
@@ -16,19 +15,19 @@ You can test that by typing
     node --version
     npm --version
 
-The source of the Project is managed by [Mercurial](https://mercurial-scm.org),
+The source of the Project is managed by [Git](https://git-scm.com/),
 which is not *strictly* needed, but you somehow have to get the sources to hack
 on them, so why not mercurial.
 
 You can test if you have mercurial installed by typing
 
-    hg --version
+    git --version
 
 ## Get the project files
 
 Check out the project files by typing
 
-    hg clone https://bitbucket.org/keppla/fumble
+    git clone https://bitbucket.org/tripletgmbh/fumble.git
 
 Alternatively, you can download the sources from the bitbucket page.
 
@@ -38,23 +37,17 @@ Fumble has many dependencies. The dependencies can be installed by typing
 
      npm install
 
-This will take a long time. Go grab a coffee.
+This may take a long time. Go grab a coffee.
 
 ## Building the Software
 
-To build the software, run
-
-    npm run-script gulp
-
-to start the watcher.
-The app should be generated to `/dist/index.html`.
+TODO
 
 # Project Structure
 
 *Fumble* compiles into a single, self-contained html file.
 
-The compilation is started via *gulp*, that uses the tasks defined in
-`gulpfile.js`.
+The compilation is started via *webpack*
 
 All files relevant for the compilation reside under `/src`:
 

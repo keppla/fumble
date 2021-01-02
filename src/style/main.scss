@@ -1,16 +1,15 @@
+@import "reset.scss";
+@import "images.scss";
 
-@import "reset.less";
-@import "images.less";
-
-@lightblue: #87aade;
-@violet: #330033;
+$lightblue: #87aade;
+$violet: #330033;
 
 
 #mainnav {
-    background-color: @violet;
+    background-color: $violet;
     text-align: center;
 
-    button {
+    a {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -42,8 +41,16 @@ section {
         &.action {
             color: white;
             padding: 1em;
-            background-color: @violet;
+            background-color: $violet;
         }
+    }
+
+    a.action {
+        margin-right: 1em;
+        color: white;
+        padding: 1em;
+        background-color: $violet;
+        text-decoration: none;
     }
 
     textarea {
@@ -73,7 +80,7 @@ section {
     button {
         padding: 1em;
         color: white;
-        background-color: @violet;
+        background-color: $violet;
     }
 }
 

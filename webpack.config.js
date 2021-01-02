@@ -1,44 +1,48 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const process = require('process');
 
-var path = require('path');
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: {
-        script: "./src/script/main.ts",
-        style: "./src/style/main.less"
-    },
+    mode: 'development',
+    entry: "./src/script/main.ts",
     output: {
-        filename: "[name].js",
+        filename: `bundle.js`,
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader"
             },
             {
-                test: /\.less$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "less-loader" // compiles Less to CSS
-                }]
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+              test: /\.pegjs$/,
+              use: [
+                { loader: 'pegjs-loader' }
+              ]
+            },
+            {
+              test: /\.svg$/,
+              use: [
+                { loader: 'url-loader' }
+              ]
             }
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html.ejs',
-            inlineSource: '[.](js|css)$'
-        }),
-        new HtmlWebpackInlineSourcePlugin()
+        // new BundleAnalyzerPlugin(),
+        new HtmlWebpackPlugin(),
+        new webpack.DefinePlugin({})
     ]
 }

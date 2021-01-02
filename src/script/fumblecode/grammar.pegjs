@@ -1,4 +1,5 @@
 {
+  let parser = this;
   function op(head, tail) {
       if (tail.length == 0) {
           return head;
@@ -129,6 +130,7 @@ Integer "integer"
 Dice "dice"
     = amount:[0-9]* [dDwW] sides:[0-9]+
     {
+        console.log("xx", op);
         return new parser.Dice(parser.asInt(amount) || 1, parser.asInt(sides))
     }
 

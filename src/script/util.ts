@@ -7,3 +7,12 @@ export function range(start: number, end: number): number[] {
     }
     return result;
 }
+
+
+export function names(map: {[name: string]: any}): string {
+    return Object
+            .entries(map)
+            .filter(([_, value]) => value)
+            .map(([name, _]) => name)
+            .join(' ')
+}

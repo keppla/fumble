@@ -1,7 +1,20 @@
 import 'jasmine';
-import {aFumbleNumber, aFumbleList} from './helpers';
-import {Call, Const, Dice, Embraced, List, Number, Operation, PropertyAccess, With} from '../../src/script/fumblecode/ast';
-import {EvaluationVisitor, EvaluationError} from '../../src/script/fumblecode/evaluation';
+import { aFumbleNumber, aFumbleList } from './helpers';
+
+import {
+    Call,
+    Const,
+    Dice,
+    Embraced,
+    List,
+    Number,
+    Operation,
+    PropertyAccess,
+    With } from '../../src/script/fumblecode/ast';
+
+import {
+    EvaluationVisitor,
+    EvaluationError } from '../../src/script/fumblecode/evaluation';
 
 
 describe("the evaluation visitor", () => {
@@ -59,7 +72,7 @@ describe("the evaluation visitor", () => {
 
     it('evaluates function calls', () => {
         let node = new Call(new Const('right'), [new Number(5), new Number(23)]);
-        expect(ev.call(node).asNumber()).toBe(23);
+        expect(ev.call(node).asNumber()).toEqual(23);
         expect(ev.call(node)).toEqual(aFumbleNumber(23));
     });
 

@@ -1,6 +1,6 @@
-import 'core-js/fn/object/entries';
-import 'core-js/fn/object/values';
-    
+// import 'core-js/fn/object/entries';
+// import 'core-js/fn/object/values';
+
 
 import {Node} from './ast';
 import {evaluate, FumbleObject} from './evaluation';

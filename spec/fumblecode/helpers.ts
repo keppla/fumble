@@ -16,7 +16,8 @@ export function aFumbleList(expected: number[]): AsymmetricMatcher {
     return {
         asymmetricMatch: (actual) => {
             return actual.items
-              && (actual.items as any[]).every((item, index) => item.asNumber() === expected[index]);
+              && (actual.items as any[]).every((item, index) =>
+                                      item.asNumber() === expected[index]);
         }
     }
 }

@@ -1,0 +1,36 @@
+
+.die.d4 {
+    background-image: url('../images/d4.svg');
+}
+
+.die.d6 {
+    background-image: url('../images/d6.svg');
+}
+
+.die.d8 {
+    background-image: url('../images/d8.svg');
+}
+
+.die.d10 {
+    background-image: url('../images/d10.svg');
+}
+
+.die.d12 {
+    background-image: url('../images/d12.svg');
+}
+
+.die.d20 {
+    background-image: url('../images/d20.svg');
+}
+
+#mainnav a.dice {
+    background-image: url('../images/dice-active.svg');
+}
+
+#mainnav a.throw {
+    background-image: url('../images/throw-active.svg');
+}
+
+#mainnav a.stats {
+    background-image: url('../images/stats-active.svg');
+}

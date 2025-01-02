@@ -1,10 +1,11 @@
-import * as React from 'react';
 import { FC, useRef, useEffect, useMemo } from 'react';
-
 import { useParams } from 'react-router-dom';
-import { Chart } from 'chart.js';
+import { Chart, CategoryScale, LinearScale, BarController, BarElement } from 'chart.js';
 
 import { parse, possibilities, Incidence } from '../fumblecode';
+
+
+Chart.register(CategoryScale, LinearScale, BarController, BarElement);
 
 
 export const StatsTab: FC = () => {
@@ -12,9 +13,17 @@ export const StatsTab: FC = () => {
   const { code } = useParams<{ code: string }>();
 
   const config = useMemo(() => {
-    const incidences = getIncidences(code);
+    const incidences = getIncidences(code!);
     return {
       type: 'bar',
+      options: {
+        scales: {
+          y: {
+            max: 100,
+            min: 0,
+          }
+        }
+      },
       data: {
         labels: incidences.map(inc => inc.value),
         datasets: [{
@@ -50,7 +59,12 @@ interface ChartDisplayProps {
 
 const ChartDisplay: FC<ChartDisplayProps> = ({ config }) => {
     const ref = useRef<HTMLCanvasElement>(null);
-    useEffect(() => { new Chart(ref.current!, config); }, []);
+    useEffect(() => { 
+      const chart = new Chart(ref.current!, config);
+      return () => {
+        chart.destroy();
+      }
+    }, []);
 
     return (
       <canvas

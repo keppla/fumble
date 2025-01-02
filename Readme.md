@@ -45,10 +45,6 @@ TODO
 
 # Project Structure
 
-*Fumble* compiles into a single, self-contained html file.
-
-The compilation is started via *webpack*
-
 All files relevant for the compilation reside under `/src`:
 
 * `/src/script` - The typescript source files
@@ -58,4 +54,4 @@ All files relevant for the compilation reside under `/src`:
 The result of the compilation will be stored in `/dist`, namely it will be
 `/dist/index.html`.
 
-*Fumble* uses *Jasmine* for testing, the specs are kept in `/spec`.
+*Fumble* uses *vitest* for testing, the specs are kept in `/spec`.

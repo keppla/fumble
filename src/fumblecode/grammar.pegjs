@@ -16,7 +16,7 @@
 Expression = With
 
 With
-    = cmp:Comparision _ bindings:BindingList?
+    = cmp:Logic _ bindings:BindingList?
     {
         return !bindings
             ? cmp
@@ -38,8 +38,15 @@ Binding
     }
 
 
+Logic
+    = head:Comparision tail:( _ ('and' / 'or') _ Comparision)*
+    {
+        return op(head, tail)
+    }
+
+
 Comparision
-    = head:Sum tail:( _ ('<=' / '>=' / '<' / '>' / '=') _ Sum)*
+    = head:Sum tail:( _ ('<=' / '>=' / '<' / '>' / '=' / '!=') _ Sum)*
     {
         return op(head, tail)
     }
@@ -130,7 +137,6 @@ Integer "integer"
 Dice "dice"
     = amount:[0-9]* [dDwW] sides:[0-9]+
     {
-        console.log("xx", op);
         return new parser.Dice(parser.asInt(amount) || 1, parser.asInt(sides))
     }
 

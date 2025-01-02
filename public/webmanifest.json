@@ -6,15 +6,15 @@
     "start_url": "index.html",
     "icons": [
         {
-          "src": "logo-100x100.png",
+          "src": "icons/logo-100x100.png",
           "sizes": "100x100",
           "type": "image/png"
         }, {
-          "src": "logo-144x144.png",
+          "src": "icons/logo-144x144.png",
           "sizes": "144x144",
           "type": "image/png"
         }, {
-          "src": "logo-200x200.png",
+          "src": "icons/logo-200x200.png",
           "sizes": "200x200",
           "type": "image/png"
         }

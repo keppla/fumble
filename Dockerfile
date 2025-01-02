@@ -1,3 +1,3 @@
-FROM triplet/nginx
+FROM nginx
 
-COPY ["dist/*", "/var/www/"]
+COPY dist /usr/share/nginx/html

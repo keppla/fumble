@@ -1,12 +1,8 @@
-// import 'core-js/fn/object/entries';
-// import 'core-js/fn/object/values';
+import { range } from '../util';
+import { NumberGenerator } from '../lib';
 
-
-import {Node} from './ast';
-import {evaluate, FumbleObject} from './evaluation';
-
-import {range} from '../util';
-import {NumberGenerator} from '../lib';
+import { Node } from './ast';
+import { evaluate, FumbleObject } from './evaluation';
 
 
 export function possibilities(node: Node): Incidence[] {

@@ -1,4 +1,5 @@
-import { parse as _parse } from './grammar.pegjs';
+import { parse as _parse } from './grammar';
+
 import { Call, Const, Dice, Embraced, List, Node, Number, Operation, PropertyAccess, With } from './ast';
 
 

@@ -1,6 +1,6 @@
-import 'jasmine';
-import './helpers';
-import {evaluateAll} from '../../src/script/fumblecode/stats';
+import { describe, it, expect } from 'vitest'
+
+import { evaluateAll } from '../../src/fumblecode/stats';
 
 
 describe("the all evaluator", () => {

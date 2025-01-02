@@ -1,24 +1,23 @@
-import * as React from 'react';
 import { FC } from 'react';
 
-import { useHistory, useParams, NavLink } from 'react-router-dom';
+import { useNavigate, useParams, NavLink } from 'react-router-dom';
 
 
 export const DiceTab: FC<{}> = () => {
 
   const { code } = useParams<{ code: string, tab: string }>();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function handleDiceCodeChange(code: string) {
-    history.replace(`/${ code }/dice`)
+    navigate(`/${ code }/dice`)
   }
 
   function handleDiceCodeAdd(die: string) {
-    const newcode = (code.trim() === '')
+    const newcode = (code!.trim() === '')
         ? die
         : `${ code } + ${ die }`;
 
-    history.replace(`/${ newcode }/dice`);
+    navigate(`/${ newcode }/dice`);
   }
 
   return (

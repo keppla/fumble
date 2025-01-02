@@ -1,4 +1,5 @@
-import 'jasmine';
+import { describe, it, expect } from 'vitest'
+
 import { aFumbleNumber, aFumbleList } from './helpers';
 
 import {
@@ -10,11 +11,11 @@ import {
     Number,
     Operation,
     PropertyAccess,
-    With } from '../../src/script/fumblecode/ast';
+    With } from '../../src/fumblecode/ast';
 
 import {
     EvaluationVisitor,
-    EvaluationError } from '../../src/script/fumblecode/evaluation';
+    EvaluationError } from '../../src/fumblecode/evaluation';
 
 
 describe("the evaluation visitor", () => {

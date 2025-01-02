@@ -46,6 +46,9 @@ class FumbleNumber implements FumbleObject {
             '<': (l, r) => l < r ? 1 : 0,
             '<=': (l, r) => l <= r ? 1 : 0,
             '=': (l, r) => l == r ? 1 : 0,
+            '!=': (l, r) => l != r ? 1 : 0,
+            'and': (l, r) => l && r ? 1 : 0,
+            'or': (l, r) => l || r ? 1 : 0,
         };
         return new FumbleNumber(operations[op](this.value, other.asNumber()));
     }
@@ -66,7 +69,7 @@ class FumbleNumber implements FumbleObject {
         return new FumbleNumber(Math.sign(this.value));
     }
 
-    call(args: FumbleObject[]): FumbleObject {
+    call(_: FumbleObject[]): FumbleObject {
         throw new EvaluationError('number cannot be called');
     }
 }
@@ -93,7 +96,7 @@ class FumbleFunction implements FumbleObject {
         throw new EvaluationError(`unknown property: ${name}`);
     }
 
-    infix(op: string, other: FumbleObject): FumbleObject {
+    infix(op: string, _: FumbleObject): FumbleObject {
         throw new EvaluationError(`operator ${op} is not defined for functions`);
     }
 
@@ -131,6 +134,12 @@ class FumbleList implements FumbleObject {
         if (name === 'reversed') {
             return new FumbleList(this.items.reverse());
         }
+        if (name === 'first') {
+            return this.items[0];
+        }
+        if (name === 'last') {
+            return this.items[this.items.length - 1];
+        }
         if (name.match(/^[0-9]+$/)) {
             let index = parseInt(name, 10);
             if (index < this.items.length) {
@@ -141,11 +150,11 @@ class FumbleList implements FumbleObject {
         throw new EvaluationError(`unknown property: ${name}`);
     }
 
-    infix(op: string, other: FumbleObject): FumbleObject {
+    infix(op: string, _: FumbleObject): FumbleObject {
         throw new EvaluationError(`operator ${op} is not defined for functions`);
     }
 
-    call(args: FumbleObject[]): FumbleObject {
+    call(_: FumbleObject[]): FumbleObject {
         throw new EvaluationError(`lists cannot be called`);
     }
 
@@ -189,7 +198,7 @@ export class EvaluationVisitor implements NodeVisitor<FumbleObject> {
     dice(d: Dice): FumbleObject {
         return new FumbleNumber(
                 range(0, d.amount)
-                    .map(i => this.generator.int(1, d.sides))
+                    .map(() => this.generator.int(1, d.sides))
                     .reduce((acc, val) => acc + val, 0))
     }
 

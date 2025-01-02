@@ -1,5 +1,6 @@
-import 'jasmine';
-import {evaluate, parse} from '../../src/script/fumblecode';
+import { describe, it, expect } from 'vitest'
+
+import { evaluate, parse } from '../../src/fumblecode';
 
 
 describe("fumblecode", () => {

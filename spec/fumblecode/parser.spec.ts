@@ -1,7 +1,18 @@
+import { describe, it, expect } from 'vitest'
 
-import 'jasmine';
-import {parse} from '../../src/script/fumblecode';
-import {NodeVisitor, PropertyAccess, Number, Operation, Const, List, Dice, Embraced, Call, With} from '../../src/script/fumblecode/ast';
+import { parse } from '../../src/fumblecode';
+import {
+    NodeVisitor,
+    PropertyAccess,
+    Number,
+    Operation,
+    Const,
+    List,
+    Dice,
+    Embraced,
+    Call,
+    With
+} from '../../src/fumblecode/ast';
 
 
 describe("the fumblecode parser", () => {

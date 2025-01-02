@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 
 
 export const TopBar: FC = () => {
-  const { tab, code } = useParams<{ code: string, tab: string }>();
+  const { code } = useParams<{ code: string }>();
 
   return (
     <nav id="mainnav">
